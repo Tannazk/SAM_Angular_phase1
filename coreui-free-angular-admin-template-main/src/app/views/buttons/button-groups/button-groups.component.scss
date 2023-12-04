@@ -1,0 +1,17 @@
+.filter-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Align items vertically in the center */
+  }
+
+  .filter-item {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .filter-item label {
+    margin-right: 10px;
+  }
+  

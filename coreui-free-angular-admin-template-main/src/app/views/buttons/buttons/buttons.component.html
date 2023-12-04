@@ -1,0 +1,232 @@
+<c-col xs="12">
+  <c-card class="mb-4">
+      <c-card class="text-center">
+        <c-card-header>
+          <c-nav class="card-header-tabs" variant="tabs">
+            <c-nav-item>
+              <a [active]="currentTab === 'alarms'" (click)="setCurrentTab('alarms')" cNavLink>
+                Alarms
+              </a>
+            </c-nav-item>
+            <c-nav-item>
+              <a [active]="currentTab === 'search'" (click)="setCurrentTab('search')" cNavLink>
+                Search
+              </a>
+            </c-nav-item>
+            <c-nav-item>
+              <a [active]="currentTab === 'grouping'" (click)="setCurrentTab('grouping')" cNavLink>
+                Grouping
+              </a>
+            </c-nav-item>
+          </c-nav>
+        </c-card-header>
+        <c-card-body>
+          <!-- Content for "Alarms" tab -->
+          <div *ngIf="currentTab === 'alarms'">
+            <h5 cCardTitle>Alarms</h5>
+            <c-card class="mb-4">
+
+            <!--  <button cButton color="primary" (click)="toggleTextBox()">Add Note</button>
+              <div *ngIf="showTextBox">
+                <input type="text" [(ngModel)]="noteText" placeholder="Enter your note" class="form-control">
+                <button cButton color="success" (click)="saveNote()">Save</button>
+                <button cButton color="secondary" (click)="cancelNote()">Cancel</button>
+              </div> -->
+
+              <!--<c-card-header>Resumen</c-card-header> -->
+                <c-card-body>
+                  <table class="table"> 
+                    <thead cTableColor="light">
+                      <tr>
+                        <th class="text-center">Date</th>
+                        <th class="text-center">Recognition date</th>
+                        <th class="text-center">User</th>
+                        <th class="text-center">Station name</th>
+                        <th class="text-center">Element</th>
+                        <th class="text-center">Team</th>
+                        <th class="text-center">Event type</th>
+                        <th class="text-center">Note</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>12/06/2023  10:00</td>
+                        <td>12/06/2023  10:01</td>
+                        <td>Admin</td>
+                        <td>AGB</td>
+                        <td>Escalera</td>
+                        <td>E1</td>
+                        <td>Incidencias</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </c-card-body>
+            </c-card>
+          </div>
+          <!-- Content for "Filter" tab -->
+          <div *ngIf="currentTab === 'search'">
+            <h5 cCardTitle>Filter</h5>
+            <!-- First line -->
+            <c-card-body class="filter-container">
+              <div class="filter-item">
+                <label for="stationSelect">Station:</label>
+                <div class="filter-input">
+                  <select id="stationSelect" aria-label="Select station" cSelect>
+                    <option disabled selected>Select Station</option>
+                    <option value="1">Station 1</option>
+                    <option value="2">Station 2</option>
+                    <option value="3">Station 3</option>
+                  </select>
+                </div>
+              </div>
+              <div class="filter-item">
+                <label for="elementSelect">Element:</label>
+                <div class="filter-input">
+                  <select id="elementSelect" aria-label="Select element" cSelect>
+                    <option disabled selected>Select Element</option>
+                    <option value="1">Element 1</option>
+                    <option value="2">Element 2</option>
+                    <option value="3">Element 3</option>
+                  </select>
+                </div>
+              </div>
+              <div class="filter-item">
+                <label for="elementSelect">Team:</label>
+                <div class="filter-input">
+                  <select id="elementSelect" aria-label="Select element" cSelect>
+                    <option disabled selected>Select Team</option>
+                    <option value="1">Equip 1</option>
+                    <option value="2">Equip 2</option>
+                    <option value="3">Equip 3</option>
+                  </select>
+                </div>
+              </div>
+            </c-card-body>
+            <!-- Second line -->
+            <c-card-body class="filter-container">
+              <div class="filter-item">
+                <label for="stationSelect">Event:</label>
+                <div class="filter-input">
+                  <select id="stationSelect" aria-label="Select station" cSelect>
+                    <option disabled selected>Select Event</option>
+                    <option value="1">Event 1</option>
+                    <option value="2">Event 2</option>
+                    <option value="3">Event 3</option>
+                  </select>
+                </div>
+              </div>
+              <div class="filter-item">
+                <label for="elementSelect">Priority:</label>
+                <div class="filter-input">
+                  <select id="elementSelect" aria-label="Select element" cSelect>
+                    <option disabled selected>Select Priority</option>
+                    <option value="1">Priority 1</option>
+                    <option value="2">Priority 2</option>
+                    <option value="3">Priority 3</option>
+                  </select>
+                </div>
+              </div>
+              <div class="filter-item">
+                <label for="elementSelect">User:</label>
+                <div class="filter-input">
+                  <select id="elementSelect" aria-label="Select element" cSelect>
+                    <option disabled selected>Select Element</option>
+                    <option value="1">Admin</option>
+                    <option value="2">User 2</option>
+                    <option value="3">User 3</option>
+                    <option value="3">Tannaz</option>
+                  </select>
+                </div>
+              </div>
+            </c-card-body>
+            <!-- Third line -->
+            <c-card-body class="filter-container">
+              <div class="filter-item">
+                <label for="stationSelect">Starting date</label>
+                <div class="filter-input">
+                  <select id="stationSelect" aria-label="Select station" cSelect>
+                    <option disabled selected>Select date</option>
+                    <option value="1">Event 1</option>
+                    <option value="2">Event 2</option>
+                    <option value="3">Event 3</option>
+                  </select>
+                </div>
+              </div>
+              <div class="filter-item">
+                <label for="elementSelect">Ending date:</label>
+                <div class="filter-input">
+                  <select id="elementSelect" aria-label="Select element" cSelect>
+                    <option disabled selected>Select date</option>
+                    <option value="1">Priority 1</option>
+                    <option value="2">Priority 2</option>
+                    <option value="3">Priority 3</option>
+                  </select>
+                </div>
+              </div>
+            </c-card-body>
+
+            <button cButton color="primary">Search</button>
+          </div>
+
+          <!-- Content for "Grouping" tab -->
+          <div *ngIf="currentTab === 'grouping'">
+            <h5 cCardTitle>Grouping</h5>
+            <c-card class="mb-4">
+              <c-card-body>
+                <table class="table">
+                  <thead cTableColor="light">
+                    <tr>
+                      <th class="text-center">Date</th>
+                      <th class="text-center">User</th>
+                      <th class="text-center">Line</th>
+                      <th class="text-center">Station</th>
+                      <th class="text-center">Element</th>
+                      <th class="text-center">Event Type</th>
+                    </tr>
+                    <tr>
+                      <td>12/06/2023  10:00</td>
+                      <td>Admin</td>
+                      <td>Line6</td>
+                      <td>AGB</td>
+                      <td>Escalera</td>
+                      <td>Type 2</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Add rows for the table if needed -->
+                  </tbody>
+                </table>
+              </c-card-body>
+            </c-card>
+
+            <!-- Button to toggle "Grouping" section -->
+            <button cButton color="primary" (click)="toggleGroupingSection()">Create a new group</button>
+
+              <c-card class="mb-4" *ngIf="showGroupingSection">
+                <c-card-body>
+                  <form>
+                    <div class="form-group">
+                      <label for="groupName">Group Name:</label>
+                      <input type="text" id="groupName" name="groupName" class="form-control" [(ngModel)]="groupName">
+                    </div>
+                    <div class="form-group">
+                      <label for="priority">Priority:</label>
+                      <select id="priority" name="priority" class="form-control" [(ngModel)]="priority">
+                        <option value="1">Priority 1</option>
+                        <option value="2">Priority 2</option>
+                        <option value="3">Priority 3</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="description">Description:</label>
+                      <textarea id="description" name="description" class="form-control" [(ngModel)]="description"></textarea>
+                    </div>
+                    <button cButton color="primary" (click)="createGroup()">Create</button>
+                  </form>
+                </c-card-body>
+            </c-card>
+          </div>
+        </c-card-body>
+      </c-card>
+  </c-card>
+</c-col>
